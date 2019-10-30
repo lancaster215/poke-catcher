@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pokemon Catch</title>
+</head>
+<body>
+    <header>
+        <label>Region: </label><br/>
+        <select name="Select Region" id="regions" class="regions"></select><br/>
+        <label>Locations:</label><br/>
+        <select name="Select Location" id="locations" class="locations"></select><br/>
+        <label>Areas:</label><br/>
+        <select name="Select Location" id="areas" class="areas"></select>
+    </header>
+    <script>
+        var region_option = document.querySelector(".regions");
+        var location_option = document.querySelector(".locations");
+
+        const requestR = 'https://pokeapi.co/api/v2/region'
+        const requestsR = []
+        let requestsL = []
+        const requestsA = []
+        let reg_value = []
+        let loc_value = []
+
+        fetch(requestR)
+            .then(blob => blob.json())
+            .then(data => {
+                requestsR.push(...data.results)
+                document.querySelector('#regions').innerHTML = requestsR
+                    .map((x,i)=>{return `<option value="${requestsR[i].name}" class="region_opt">${requestsR[i].name}</option>`;})
+                document.querySelector('#regions').dispatchEvent(new Event('change'))
+            })
+
+        region_option.addEventListener('change', function(e){
+            reg_value = document.querySelector('#regions').value
+            const requestL = `https://pokeapi.co/api/v2/region/${reg_value}`
+
+            fetch(requestL)
+                .then(blob => blob.json())
+                .then(data =>{
+                    requestsL = data.locations
+                    document.querySelector('#locations').innerHTML = requestsL
+                        .map((x,i)=>{return `<option value="${requestsL[i].name}" class="location_opt">${requestsL[i].name}</option>`;})
+                    document.querySelector('#locations').dispatchEvent(new Event('change'))
+                });
+        })
+        location_option.addEventListener('change', function(e){
+            loc_value = document.querySelector('#locations').value
+            const requestA = `https://pokeapi.co/api/v2/location/${loc_value}`
+
+            fetch(requestA)
+                .then(blob => blob.json())
+                .then(data => {
+                    requestsA.push(...data.areas)
+                    document.querySelector('#areas').innerHTML = requestsL
+                        .map((x,i)=>{return `<option value="${requestsA[i].name}" class="area_opt">${requestsA[i].name}</option>`;})
+                    document.querySelector('#areas').dispatchEvent(new Event('change'))
+                });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+    "Colors" : [
+        {"Type": "Primary"},
+        {"Color": "red"},
+        {"Hex" : "#ff0000"},
+        {"RGBA" : "rgba(255,0,0,1)"},
+        {"HSLA" : "hsla(0,100%,50%,1)"}
+    ]
+}
