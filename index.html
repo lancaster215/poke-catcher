@@ -5,62 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pokemon Catch</title>
+    <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
-    <header>
-        <label>Region: </label><br/>
-        <select name="Select Region" id="regions" class="regions"></select><br/>
-        <label>Locations:</label><br/>
-        <select name="Select Location" id="locations" class="locations"></select><br/>
-        <label>Areas:</label><br/>
-        <select name="Select Location" id="areas" class="areas"></select>
-    </header>
-    <script>
-        var region_option = document.querySelector(".regions");
-        var location_option = document.querySelector(".locations");
+    <div class="whole-container center">
+        <header>
+            <img src="./assets/imgs/pokemon-logo.png" alt="poke-logo" id="poke-logo">
+            <h1>You Can't catch'em all!</h1>
+            <div class="container-select">
+                <label>Region: </label>
+                <select name="Select Region" id="regions" class="regions"></select>
+                <label>Locations:</label>
+                <select name="Select Location" id="locations" class="locations"></select>
+                <label>Areas:</label>
+                <select name="Select Location" id="areas" class="areas"></select>
+                <button class="explore">Explore <span class="spanthis to-upper"></span></button>
+            </div>
+        </header>
+        <div class="container-explore">
+            <!-- <img src="/assets/imgs/pokeball.gif" alt=""> -->
+        </div>
+        <div class="container-capture">
+            <h3 id="capturedTotal">Captured 0 / 6</h3>
+            <div class="capture-details">
 
-        const requestR = 'https://pokeapi.co/api/v2/region'
-        const requestsR = []
-        let requestsL = []
-        const requestsA = []
-        let reg_value = []
-        let loc_value = []
-
-        fetch(requestR)
-            .then(blob => blob.json())
-            .then(data => {
-                requestsR.push(...data.results)
-                document.querySelector('#regions').innerHTML = requestsR
-                    .map((x,i)=>{return `<option value="${requestsR[i].name}" class="region_opt">${requestsR[i].name}</option>`;})
-                document.querySelector('#regions').dispatchEvent(new Event('change'))
-            })
-
-        region_option.addEventListener('change', function(e){
-            reg_value = document.querySelector('#regions').value
-            const requestL = `https://pokeapi.co/api/v2/region/${reg_value}`
-
-            fetch(requestL)
-                .then(blob => blob.json())
-                .then(data =>{
-                    requestsL = data.locations
-                    document.querySelector('#locations').innerHTML = requestsL
-                        .map((x,i)=>{return `<option value="${requestsL[i].name}" class="location_opt">${requestsL[i].name}</option>`;})
-                    document.querySelector('#locations').dispatchEvent(new Event('change'))
-                });
-        })
-        location_option.addEventListener('change', function(e){
-            loc_value = document.querySelector('#locations').value
-            const requestA = `https://pokeapi.co/api/v2/location/${loc_value}`
-
-            fetch(requestA)
-                .then(blob => blob.json())
-                .then(data => {
-                    requestsA.push(...data.areas)
-                    document.querySelector('#areas').innerHTML = requestsL
-                        .map((x,i)=>{return `<option value="${requestsA[i].name}" class="area_opt">${requestsA[i].name}</option>`;})
-                    document.querySelector('#areas').dispatchEvent(new Event('change'))
-                });
-        });
-    </script>
+            </div>
+        </div>
+    </div>
+    <script src="assets/main.js"></script>
 </body>
 </html>

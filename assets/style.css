@@ -1,0 +1,45 @@
+*{
+    margin:0;
+    font-family:Verdana,sans-serif;
+    font-size:15px;
+    line-height:1.5
+}
+select{
+    padding:9px 0;
+    width:20%;
+    border:none;
+    border-bottom:1px solid #ccc;
+    text-transform: uppercase;
+}
+button{
+    border:none;display:inline-block;
+    padding:8px 16px;
+    vertical-align:middle;
+    overflow:hidden;
+    text-decoration:none;
+    color:inherit;
+    background-color:white;
+    text-align:center;
+    cursor:pointer;
+    white-space:nowrap
+}
+button:hover{
+    box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)
+}
+.to-upper{
+    text-transform: uppercase;
+}
+.center{
+    margin: 0 auto;
+    text-align: center;
+}
+.whole-container{
+    background-color: #FFC107;
+    width: 50%;
+}
+#poke-logo{
+    width: 150px;
+}
+.container-select{
+    display: flex;
+}
