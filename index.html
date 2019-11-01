@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pokemon Catch</title>
     <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P%7CShare+Tech+Mono&display=swap&subset=cyrillic,cyrillic-ext,greek,latin-ext">
 </head>
 <body>
     <div class="whole-container center">
@@ -13,22 +14,20 @@
             <img src="./assets/imgs/pokemon-logo.png" alt="poke-logo" id="poke-logo">
             <h1>You Can't catch'em all!</h1>
             <div class="container-select">
-                <label>Region: </label>
-                <select name="Select Region" id="regions" class="regions"></select>
-                <label>Locations:</label>
-                <select name="Select Location" id="locations" class="locations"></select>
-                <label>Areas:</label>
-                <select name="Select Location" id="areas" class="areas"></select>
-                <button class="explore">Explore <span class="spanthis to-upper"></span></button>
+                <select title="Regions" name="Select Region" id="regions" class="selects regions"></select>
+                <select title="Locations" name="Select Location" id="locations" class="selects locations"></select>
+                <select title="Areas" name="Select Location" id="areas" class="selects areas"></select>
             </div>
+            <button class="explore">Explore this Area!<!--<span class="spanthis to-upper" style="color:#FFC107"></span>--></button>
         </header>
         <div class="container-explore">
-            <!-- <img src="/assets/imgs/pokeball.gif" alt=""> -->
         </div>
-        <div class="container-capture">
-            <h3 id="capturedTotal">Captured 0 / 6</h3>
-            <div class="capture-details">
-
+        <div class="backpack">
+            <img src="./assets//imgs/backpack1.png" alt="backpack" width="85px" class="backpack_toggle">
+            <div class="container-capture">
+                <div class="capture-details">
+                    <h3 class="capturedTotal">Captured 0 / 6</h3>
+                </div>
             </div>
         </div>
     </div>
