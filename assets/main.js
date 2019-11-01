@@ -43,11 +43,7 @@ location_option.addEventListener('change', function(e){
             requestsA = data.areas
             document.querySelector('#areas').innerHTML = requestsA
                 .map((x,i)=>{return `<option value="${requestsA[i].name}" class="area_opt">${requestsA[i].name}</option>`;});
-            // requestsA.map((x,i) => spanthis.innerText = `${renderword(requestsA[i].name)} !`);
             document.querySelector('#areas').dispatchEvent(new Event('change'))
-            // spanthis.innerText = requestsA
-            //     .map((x,i) => renderword(requestsA[i].name))
-            // // spanthis.innerHTML = `${renderword(document.querySelector('#areas').value)}`
         });
 });
 explore_btn.addEventListener('click', function(){
@@ -96,15 +92,17 @@ explore_container.addEventListener('click', function(e) {
     if (catched_pokemon.length !== 6) {
         document.querySelector('.hide-when').style.display = "none";
         var pokegif = document.createElement("img");
-        pokegif.setAttribute("src", "/assets/imgs/pokeball.gif")
+        pokegif.setAttribute("src", "/assets/imgs/pokeball.gif");
         pokegif.style.width = "150px";
         explore_container.append(pokegif);
-        
+        explore_btn.setAttribute("disabled", "true");
+
         setTimeout(function count(){
             if (e.target.matches('.catch')) {
                 catches(pokeImg, pokemon_name);
                 explore_container.innerText = `You captured ${pokemon_name}, find more pokemon!`;
-                backpack.setAttribute("title", `${catched_pokemon.length} Pokemon in the Backpack`)
+                backpack.setAttribute("title", `${catched_pokemon.length} Pokemon in the Backpack`);
+                explore_btn.removeAttribute("disabled", "true")
             }
         }, 5000)
     }else{

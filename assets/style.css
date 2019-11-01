@@ -66,9 +66,6 @@ button:hover{
     width: 40%;
     border-radius: 5px;
 }
-/* .container-select{
-    
-} */
 .selects{
     display: inline-flex;
 }
@@ -90,20 +87,15 @@ button:hover{
     margin-top: -70px;
     position: absolute;
 }
-/* .capture-details{
-    display: contents;
-} */
 .capture-details div{
     display: flex;
     margin-top: 20px;
     height: 50px;
-    /* background-color: green; */
 }
 .capture-details div img{
     height: 100px;
     margin-top: 20px;
     margin-right: 20px;
-    /* background-color: red; */
 }
 .capturedTotal{
     display: none;
